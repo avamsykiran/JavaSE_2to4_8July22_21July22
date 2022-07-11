@@ -62,7 +62,7 @@ Java SE
                                         copy constructor
 
                         public class Circle {
-                            private static double PI=3.14; //class variable
+                            public static final double PI=3.14; //class variable
                             private double radius; //instacne -variables
 
                             public Circle(){
@@ -106,12 +106,132 @@ Java SE
 
                             Circle c4 = Circle.add(c2,c3);
 
+                            Circle c5 = c1;
 
                 Inheretence
+                        defining a new data type from an exiting data type.
+                        the existing type is called super type 
+                        the newly created type is called sub type
 
+                        Super <----- Sub                            Single
+
+                                    |<---Sub2
+                        Super <-----|                               Hyrarichal
+                                    |<---Sub3
+
+                        Super <-----Sub1 <----Sub2 <----Sub3 ...    Multi-level
+
+                                    |<-----Sub4
+                        Super <-----|                               Hybrid                     
+                                    |<-----Sub1 <----Sub2 <----Sub3
+
+
+                        Super1<-----|
+                                    |<----Sub                       Multiple
+                        Super2<-----|
+
+                        Java classes do not support multiple inheretence as due to ambiguity issues.
+
+                        Java classes can implement multiple interfaces
+
+                        class 'extends' another class
+                        interface 'extends' another interface
+                        class 'impolements' an interface
+
+                        constructor chaining is the process fo executing all the constructors of
+                        all the super classes in order as and when an object is allocated for a class.
+
+                        'this'      used to call a constructor from another constructor of the same class
+                        'super'     used to call a super class construcotr from the sub class constructor
+                        'final'
+                                    final local variables
+                                    final class variables
+                                    final instance variables        those variables will be trated as constants
+
+                                    final classes can not be extended any furhtur, final classes can not ahve any
+                                    sub-classes.
+
+                        class Pen {
+                            nib;
+                            rifle;
+                            barrel;
+
+                            void write(Paper paper){
+                                //1
+                            }
+                        }
+
+                        class Marker extends Pen{
+                            void write(WhiteBoard wb){
+                                //2
+                            }                      
+                        }
 
                 Polymorphisim
+
+                    Overlaoding is having two or more methods with the same name but different parameters.
+                    Overriding is having two or more methods with the same signature
+
+                        class HumanBeing {
+                            
+                            Energy eat(Apple apple){
+                                Energy e = new Energy();
+                                wash(apple);
+                                Piece[] pieces = cut(apple);
+                                for(Piece p : pieces) 
+                                    e.accumulate(chewAndSwallow(p));
+                                return e;
+                            }
+
+                            Energy eat(IceCream ic){
+                                Energy e = new Energy();
+                                while(!ic.isEmpty())
+                                    e.accumualate(lick(ic));
+                                return e;
+                            }
+                        }
+
+                        class Infant extends HumanBeing {
+                            Energy eat(Apple apple){
+                                Energy e = new Energy();
+                                wash(apple);
+                                Piece[] pieces = cut(apple);
+                                Paste paste = grind(pieces);
+                                while(!paste.isEmpty())
+                                    e.accumualate(lick(paste));
+                                return e;
+                            }
+                        }
+
+                        'super'     used to call a super class method from the sub class overriden copy.
+                        'final'     final methods can not be overriden
+
                 Abstraction
+
+                    'abstract' keyword to declare an abstract method. where an abstract method  has no implementation.
+
+                    abstract method can housed inside either an abstract class or an interface.
+
+                    An abstract class is a class to which we can not allocate an object.
+
+                    An interface is a user defiend data tyep to facilitate multiple inheretence.
+
+                    abstract class can have 
+                            class variables
+                            instance variables
+                            static methods
+                            non-static methods
+                            abstract methods
+
+                    interface can have 
+                            only final class variables
+                            static methods
+                            non-static methods
+                            abstract methods
+
+                
+
+
     
 
     
